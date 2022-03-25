@@ -62,7 +62,8 @@ function populateCardsDynamically() {
     .get()
     .then((allHikes) => {
       allHikes.forEach((doc) => {
-        var hikeName = doc.data().name; //gets the name field
+        {
+          var hikeName = doc.data().name; //gets the name field
         var hikeID = doc.data().id; //gets the unique ID field
         var hikeLength = doc.data().length; //gets the length field
         let testHikeCard = hikeCardTemplate.content.cloneNode(true);
@@ -84,7 +85,7 @@ function populateCardsDynamically() {
         testHikeCard.querySelector("i").id = "save-" + hikeID;
         // this line will call a function to save the hikes to the user's document
         testHikeCard.querySelector("i").onclick = () => saveBookmark(hikeID);
-
+        }
         if (userBookmarks.includes(hikeID)) {
           testHikeCard.querySelector("i").innerHTML = "bookmark";
         }
@@ -107,16 +108,11 @@ function populateCardsDynamically() {
 //-----------------------------------------------------------------------------
 function saveBookmark(hikeID) {
   currentUser.get().then((userDoc) => {
-    //get the user name
-    // console.log(userDoc.data().bookmarks);
     if (userDoc.data().bookmarks.includes(hikeID)) {
       currentUser
         .set(
           {
             bookmarks: firebase.firestore.FieldValue.arrayRemove(hikeID),
-          },
-          {
-            merge: true,
           }
         )
         .then(function () {

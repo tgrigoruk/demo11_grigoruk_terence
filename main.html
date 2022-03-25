@@ -58,9 +58,9 @@
     <nav id="navbarPlaceholder"></nav>
 
     <!-- the body of your page goes here -->
-    <div class="container-fluid bg-dark text-light p-5">
-      <div class="container bg-dark p-5">
-        <h1 class="display-4">
+    <div class="container-fluid bg-secondary text-light p-3">
+      <div class="container bg-secondary p-3">
+        <h1 class="display-3">
           Good morning, <span id="name-goes-here"></span>
         </h1>
         <hr />
@@ -69,7 +69,7 @@
     </div>
 
     <template id="hikeCardTemplate">
-      <div class="card">
+      <div class="card m-3 p-2" style="width: 18rem;">
         <img class="card-img-top" />
         <div class="card-body">
           <h5 class="card-title">placeholder</h5>
@@ -80,15 +80,17 @@
             This card has supporting text below as a natural lead-in to
             additional content.
           </p>
-          <a href="#" class="btn btn-primary" style="float: right">Read more</a>
+          <i class="material-icons" >bookmark_border</i>
+          <a class="btn btn-primary card-href bg-success read-more" style="float: right">Read more</a>
+          
         </div>
       </div>
     </template>
 
-    <div class="container">
-      <h1>Some popular hikes</h1>
+    <div class="container p-3">
+      <h1>Some popular hikes:</h1>
       <!-- Here is container for cards  -->
-      <div class="container">
+      <div class="container mx-1">
         <div id="hikeCardGroup" class="row row-cols-auto"></div>
       </div>
     </div>
@@ -101,7 +103,6 @@
     <!---------------------------------------------->
     <script src="./scripts/firebaseAPI_team99.js"></script>
     <script src="./scripts/skeleton.js"></script>
-    <script src="./scripts/script.js"></script>
     <script src="./scripts/main.js"></script>
   </body>
 </html>
